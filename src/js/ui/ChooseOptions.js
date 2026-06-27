@@ -37,4 +37,18 @@ ready(function() {
     document.getElementById( 'practice_chooser_name' ).addEventListener( 'change', function( e ) {
             sectionTitle.innerText = e.target.value;
     });
+
+    // Keep the visible stop-at-mid-touch checkbox in sync with the hidden hash-backed field.
+    var stopAtMidTouchRounds = document.getElementById( 'practice_chooser_stopAtMidTouchRounds_checkbox' ),
+        stopAtMidTouchRoundsField = document.getElementById( 'practice_chooser_stopAtMidTouchRounds' );
+
+    var syncStopAtMidTouchRoundsField = function() {
+        stopAtMidTouchRoundsField.value = stopAtMidTouchRounds.checked? '1' : '';
+        stopAtMidTouchRoundsField.dispatchEvent( new Event( 'change', { bubbles: true } ) );
+    };
+
+    stopAtMidTouchRounds.addEventListener( 'change', syncStopAtMidTouchRoundsField );
+    stopAtMidTouchRoundsField.addEventListener( 'change', function() {
+        stopAtMidTouchRounds.checked = !!stopAtMidTouchRoundsField.value;
+    } );
 } );

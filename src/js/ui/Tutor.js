@@ -23,7 +23,8 @@ ready(function() {
             option_leadOrCourse = document.querySelector( '#practice_chooser_leadOrCourse li.active input' ).value,
             option_stage = parseInt( document.getElementById( 'practice_chooser_stage' ).value, 10 ),
             option_notation = PlaceNotation.parse( PlaceNotation.expand( document.getElementById( 'practice_chooser_notation' ).value, option_stage ), option_stage ),
-            option_following = parseInt( practice_chooser_bell.querySelector( 'li.active input' ).value, 10 ) - 1;
+            option_following = parseInt( practice_chooser_bell.querySelector( 'li.active input' ).value, 10 ) - 1,
+            option_stopAtMidTouchRounds = document.getElementById( 'practice_chooser_stopAtMidTouchRounds_checkbox' ).checked;
 
         // Read off rule offs
         var option_ruleOffs = {};
@@ -60,6 +61,10 @@ ready(function() {
                     break;
                 }
             }
+        }
+        // Override finish row so the runtime stops at the first return to rounds.
+        if( option_stopAtMidTouchRounds ) {
+            option_finishRow = false;
         }
 
         // Create a new ringing practice interface

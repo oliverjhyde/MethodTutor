@@ -76,7 +76,8 @@ ready( function() {
         'stage': document.getElementById( 'practice_chooser_stage' ),
         'notation': document.getElementById( 'practice_chooser_notation' ),
         'ruleoffs': document.getElementById( 'practice_chooser_ruleOffs' ),
-        'allowMethodSelection': document.getElementById( 'practice_chooser_allowMethodSelection' )
+        'allowMethodSelection': document.getElementById( 'practice_chooser_allowMethodSelection' ),
+        'stopAtMidTouchRounds': document.getElementById( 'practice_chooser_stopAtMidTouchRounds' )
     };
 } );
 
