@@ -22,15 +22,15 @@
     </header>
     <!-- Step 1: method lookup and basic method metadata -->
     <section id="selectMethod" class="up">
-      <div class="prev_button"><input type="reset" value="Clear" /></div>
+      <div class="prev_button"><input type="reset" value="Clear" title="Clear method name, stage, and notation, then start again." /></div>
       <h4>Method&nbsp;Name</h4>
       <div class="input_wrapper">
-        <input id="practice_chooser_name" name="practice_chooser_name" type="text" placeholder="Type to search" autocomplete="off" autocapitalize="none">
+        <input id="practice_chooser_name" name="practice_chooser_name" type="text" placeholder="Type to search" autocomplete="off" autocapitalize="none" title="Search for a method by name; selecting a result fills stage and place notation automatically.">
       </div>
       <ul id="searchResults"></ul>
       <h4>Stage</h4>
       <div class="select_wrapper">
-        <select id="practice_chooser_stage">
+        <select id="practice_chooser_stage" title="Choose how many bells the method uses (its stage).">
           <option value="" disabled selected>Select number of bells</option>
           <option value="3">3 - Singles</option>
           <option value="4">4 - Minimus</option>
@@ -46,20 +46,20 @@
       </div>
       <h4>Place&nbsp;Notation</h4>
       <div class="input_wrapper">
-        <input id="practice_chooser_notation" name="practice_chooser_notation" type="text" placeholder="" autocomplete="off" autocapitalize="none">
+        <input id="practice_chooser_notation" name="practice_chooser_notation" type="text" placeholder="" autocomplete="off" autocapitalize="none" title="Enter place notation manually, or let search fill this in for you.">
       </div>
       <p id="practice_chooser_help" class="pulse">Populate stage and place notation either manually or by searching in the name box to&nbsp;proceed</p>
-      <div class="next_button"><button>Next ↓</button></div>
+      <div class="next_button"><button title="Continue to options once place notation is set.">Next ↓</button></div>
       <input id="practice_chooser_ruleOffs" name="practice_chooser_ruleOffs" type="hidden">
       <input id="practice_chooser_allowMethodSelection" name="practice_chooser_allowMethodSelection" type="hidden">
     </section>
     <!-- Step 2: user-specific options before entering tutor mode -->
     <section id="chooseOptions" class="down">
-      <div class="prev_button"><button>↑ Set Method</button></div>
+      <div class="prev_button"><button title="Go back to method selection to change title, stage, or notation.">↑ Set Method</button></div>
       <h3>...</h3>
       <input id="practice_chooser_stopAtMidTouchRounds" name="practice_chooser_stopAtMidTouchRounds" type="hidden">
       <h4>Starting&nbsp;Place&nbsp;Bell</h4>
-      <ul id="practice_chooser_bell" class="tab_group _6">
+      <ul id="practice_chooser_bell" class="tab_group _6" title="Pick which bell you want to follow">
         <li class="_3 _4 _5 _6 _7 _8 _9 _10 _11 _12"><input type="radio" name="practice_chooser_bell" id="practice_chooser_bell_1" value="1" checked="checked"><label for="practice_chooser_bell_1">1</label></li>
         <li class="_3 _4 _5 _6 _7 _8 _9 _10 _11 _12 active"><input type="radio" name="practice_chooser_bell" id="practice_chooser_bell_2" value="2" checked="checked"><label for="practice_chooser_bell_2">2</label></li>
         <li class="_3 _4 _5 _6 _7 _8 _9 _10 _11 _12"><input type="radio" name="practice_chooser_bell" id="practice_chooser_bell_3" value="3"><label for="practice_chooser_bell_3">3</label></li>
@@ -75,19 +75,19 @@
       </ul>
       <h4>Length</h4>
       <ul id="practice_chooser_leadOrCourse" class="tab_group">
-        <li><input type="radio" name="practice_chooser_leadOrCourse" id="practice_chooser_leadOrCourse_lead" value="lead"><label for="practice_chooser_leadOrCourse_lead">Single Lead</label></li>
-        <li class="active"><input type="radio" name="practice_chooser_leadOrCourse" id="practice_chooser_leadOrCourse_course" value="course" checked="checked"><label for="practice_chooser_leadOrCourse_course">Plain Course</label></li>
+        <li><input type="radio" name="practice_chooser_leadOrCourse" id="practice_chooser_leadOrCourse_lead" value="lead"><label for="practice_chooser_leadOrCourse_lead" title="Practice one lead only.">Single Lead</label></li>
+        <li class="active"><input type="radio" name="practice_chooser_leadOrCourse" id="practice_chooser_leadOrCourse_course" value="course" checked="checked"><label for="practice_chooser_leadOrCourse_course" title="Practice a full plain course.">Plain Course</label></li>
       </ul>
       <h4>Ohter&nbsp;Options</h4>
       <div class="checkbox_wrapper">
         <input type="checkbox" id="practice_chooser_stopAtMidTouchRounds_checkbox">
         <label for="practice_chooser_stopAtMidTouchRounds_checkbox" title="Stop at rounds if it occurs away from the end of a block">Stop at mid-touch rounds</label>
       </div>
-      <div class="next_button"><button id="go">Go ↓</button></div>
+      <div class="next_button"><button id="go" title="Start the tutor">Go ↓</button></div>
     </section>
 		<!-- Step 3: runtime tutor host; RingingPractice mounts inside this container -->
 		<section id="tutor" class="down">
-      <div class="prev_button"><button>↑ Exit</button></div>
+      <div class="prev_button"><button title="Leave tutor mode and return to options.">↑ Exit</button></div>
       <div id="practice_container"></div>
     </section>
     <!-- About dialog content displayed as a native modal from ui/About.js -->
