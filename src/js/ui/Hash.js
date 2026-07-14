@@ -36,6 +36,15 @@ var Hash = {
                 fieldMap[field].dispatchEvent( new Event( 'change', { bubbles: true } ) );
             }
         }
+        // If a starting place bell was given in the hash, select it by simulating a click
+        // on the matching radio button (same technique ChooseOptions.js already uses
+        // internally to reset the bell when the stage shrinks below it)
+        if( typeof currentHash.bell !== 'undefined' && currentHash.bell !== '' ) {
+            var bellInput = document.getElementById( 'practice_chooser_bell_' + currentHash.bell );
+            if( bellInput ) {
+                bellInput.dispatchEvent( new MouseEvent( 'click', { view: window, bubbles: true, cancelable: true } ) );
+            }
+        }
         // If the method has been fully populated via the hash then move onto options instantly
         // Otherwise, move back to the method selection step
         document.body.classList.add( 'no-transition' );
