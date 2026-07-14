@@ -37,8 +37,6 @@ var Hash = {
             }
         }
         // If a starting place bell was given in the hash, select it by simulating a click
-        // on the matching radio button (same technique ChooseOptions.js already uses
-        // internally to reset the bell when the stage shrinks below it)
         if( typeof currentHash.bell !== 'undefined' && currentHash.bell !== '' ) {
             var bellInput = document.getElementById( 'practice_chooser_bell_' + currentHash.bell );
             if( bellInput ) {
@@ -54,9 +52,21 @@ var Hash = {
         else {
             document.querySelector( '#chooseOptions .prev_button button' ).dispatchEvent( new Event( 'click', { bubbles: true } ) );
         }
+        
+        // Clean up the transition block
         setTimeout( function() {
             document.body.classList.remove( 'no-transition' );
         }, 500 );
+
+        // Trigger 'Go' after the UI has settled
+        if( typeof currentHash.bell !== 'undefined' && currentHash.bell !== '' ) {
+            setTimeout( function() {
+                var goButton = document.getElementById( 'go' );
+                if ( goButton ) {
+                    goButton.click();
+                }
+            }, 100 );
+        }
     },
     update: function( e ) {
         var currentHash = parseCurrentHash(),
