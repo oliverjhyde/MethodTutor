@@ -65,7 +65,7 @@ var Hash = {
                 if ( goButton ) {
                     goButton.click();
                 }
-            }, 100 );
+            }, 0 );
         }
     },
     update: function( e ) {
